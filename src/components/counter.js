@@ -1,6 +1,7 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-export const Counter = ({ counter, inc, dec, rnd }) => {
+const Counter = ({ counter, inc, dec, rnd }) => {
   return (
     <div className="jumbotron">
       <h2>{counter}</h2>
@@ -17,4 +18,10 @@ export const Counter = ({ counter, inc, dec, rnd }) => {
         className="btn btn-primary btn-lg">RND</button>
     </div>
   )
-}
+};
+
+const mapStateToProps = (state) => ({
+  counter: state
+})
+
+export default connect(mapStateToProps)(Counter);
